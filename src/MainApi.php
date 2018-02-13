@@ -6,20 +6,18 @@ use CinemaApi\Adapter\AdapterInterface;
 use CinemaApi\Api\Film;
 
 
-class MainApi{
-    
+class MainApi
+{
+
     protected $adapter;
 
-    public function __construct(AdapterInterface $adapter) {
-//        echo __FILE__;
+    public function __construct(AdapterInterface $adapter)
+    {
         $this->adapter = $adapter;
-        
-        
-        var_dump($this->adapter->get(''));
     }
-    
-    
-    public function film() {
+
+    public function film()
+    {
         return new Film($this->adapter);
     }
 }

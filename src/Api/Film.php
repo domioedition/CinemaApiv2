@@ -2,17 +2,14 @@
 
 namespace CinemaApi\Api;
 
+use CinemaApi\Entity\Film as FilmEntity;
+
 class Film extends AbstractApi{
-    
-    
-    
-    public function getFilmInformation() {
-//        echo "Class: ".__CLASS__;
-//        var_dump($this->adapter);
-        
-        $filmInfo = $this->adapter->get(100);
-        
-        
-//        var_dump($filmInfo);
+
+    public function getFilmInformation($search) {
+        $filmInfo = $this->adapter->get(sprintf('%s%s', $this->endpoint, $search));
+        $filmInfoArr = json_decode($filmInfo);
+
+        return new FilmEntity($filmInfoArr);
     }
 }
