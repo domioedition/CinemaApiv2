@@ -10,8 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $adapter = new CinemaApi\Adapter\GuzzleHttpAdapter();
 //$adapter = new \CinemaApi\Adapter\CurlAdapter();
 
-    $main = new \CinemaApi\MainApi($adapter);
-    $film = $main->film();
+    $main = \CinemaApi\MainApi::film($adapter);
+//    $main->getFilmInformation($search);
+//    $film = $main->film();
 
     $serachString = $_POST['filmTitle'];
 
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //Нормальни ли сюда передать отдельно все параметры навание, год
 
 //Search params
-    $objectFilm = $film->getFilmInformation($serachString);
+    $objectFilm = $main->getFilmInformation($serachString);
 }
 
 ?>

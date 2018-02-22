@@ -9,15 +9,18 @@ use CinemaApi\Api\Film;
 class MainApi
 {
 
-    protected $adapter;
+//    protected $adapter;
 
-    public function __construct(AdapterInterface $adapter)
+    private function __construct()
     {
-        $this->adapter = $adapter;
+//        $this->adapter = $adapter;
     }
 
-    public function film()
+    public static function film(AdapterInterface $adapter)
     {
-        return new Film($this->adapter);
+//        $x = new self();
+//        var_dump($adapter);
+//        die;
+        return new Film($adapter);
     }
 }
