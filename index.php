@@ -24,6 +24,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $objectFilm = $main->getFilmInformation($serachString);
 }
 
+
+
+$adapter = new CinemaApi\Adapter\GuzzleHttpAdapter();
+$main = \CinemaApi\MainApi::film($adapter);
+$films = $main->getFilmsToRent();
+
+
+var_dump($films);
+
+
 ?>
 
 <!doctype html>

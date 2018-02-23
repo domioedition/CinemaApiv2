@@ -18,6 +18,6 @@ abstract class AbstractApi
         $this->endpoint = $endpoint ?: static::ENDPOINT;
 
         //add search by title
-        $this->endpoint .= "&t=";
+        $this->endpoint .= "&i=";
     }
 }
